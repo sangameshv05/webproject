@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link href="test.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main h-100 w-100">
+        <div class="col-md-4 col-sm-10">
+        
+        <div class="login-form">
+            
+            <h1>TEST SCHEDULE</h1>
+            <form action="./test.php" method="POST">
+                <div class="form-group">
+                    <label for="tnum">Test Number</label>
+                    <input type="number" class="form-control" name="tnum" placeholder="Test Number">
+                </div>
+                <div class="form-group">
+                    <label for="code">Subject Code</label>
+                    <input type="text" class="form-control" name="code" placeholder="Subject Code">
+                </div>
+                <div class="form-group">
+                    <label for="code">Date</label>
+                    <input type="date" class="form-control" name="date" >
+                </div>
+                <div class="form-group">
+                    <label for="code">Time</label>
+                    <input type="time" class="form-control" name="time" >
+                </div>
+                <div class="form-group">
+                    <label for="code">Duration</label>
+                    <input type="number" class="form-control" name="duration" >
+                </div>
+                <button type="submit" name="submit" class="btn btn-black">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

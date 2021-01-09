@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD TEACHER</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link href="adduser.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main h-100 w-100">
+        <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <h1>ADD USERS</h1>
+            <form action="adduser.php" method="POST">
+                <div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="id" placeholder="ID">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="NAME">
+                    </div>
+                    <div class="form-group">
+                        <label for="dept" class="mr-3" >ROLE:</label>
+                        <select name="role">
+                            <option value="student">STUDENT</option>
+                            <option value="teacher">TEACHER</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="sem" placeholder="SEM">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="PASSWORD">
+                    </div>
+                    
+                    <button type="submit" name="submit" class="btn btn-black">Add User</button>
+                    <a type="submit" href="addsubject.html" class="btn btn-black">Add Subject</a>
+                </div>
+                
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+.main{
+    padding-left: 35%; 
+}
+
+.login-form{
+    margin-top: 60%;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+@media screen and (max-width: 750px) {
+    .login-form{
+        margin-top: 10%;
+    }
+    .main{
+        padding-left: 0%; 
+    }
+    
+}

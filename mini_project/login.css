@@ -1,0 +1,23 @@
+body {
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(to right, white 50%, black 50%);
+}
+
+    .main{
+        margin-left: 35%; 
+    }
+
+    .login-form{
+        margin-top: 50%;
+    }
+
+/* @media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 40%;
+    }
+} */
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}

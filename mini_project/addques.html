@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link href="addques.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        #logout{
+            margin-left: 90%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main h-100 w-100">
+        <div class="col-md-6 col-sm-12">
+            
+        <div class="login-form">
+            <button id="logout" class="btn btn-black mb-5"><a href="logout.php">Logout</a></button>
+            <form name="add_name" id="add_name" method="post" action="./addques.php">
+                <div class="form-group">
+                    <label><h4>Question Number</h4></label>
+                    <input name="question_num" type="number" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><h4>New Question</h4></label>
+                    <textarea name="question" type="text" class="form-control" rows="5" placeholder="Type your Question"></textarea>
+                </div>
+                <label><h4>Options</h4></label>
+                <div class=" form-group">
+                    <div class="container1"></div>
+                    <button class="add_form_field delete_me btn btn-black mt-2">Add New Field &nbsp; 
+                        <span style="font-size:16px; font-weight:bold;">+ </span>
+                    </button>
+                    <input class="ml-3 mul_ans" type="radio" name="type" value="checkbox" />Multiple Answers?
+                    <input class="ml-3 sin_ans" type="radio" name="type" value="radio" />Single Answers?
+                    
+                </div>
+                <button type="submit" name="submit" id="submit" value="submit" class="btn btn-black mb-5">Done</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+        var max_fields = 8;
+        var wrapper = $(".container1");
+        var add_button = $(".add_form_field");
+
+        var x = 0;
+        var mul_ans = $(".mul_ans");
+        var sin_ans = $(".sin_ans");
+        var z = "radio";
+        $(mul_ans).click(function(e) {
+            e.preventDefault();
+            z = "checkbox"
+            $(wrapper).append('<div class=""><input type="text" name="mytext[]" class="form-control mb-1" placeholder="Fill me"/><input class="mb-5" type="'+z+'" name="answer[]" value="'+x+'" />Correct Answer</div>');
+            $(add_button).click(function(e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append('<div class=""><input type="text" name="mytext[]" class="form-control mb-1" placeholder="Fill me"/><input class="mb-5" type="'+z+'" name="answer[]" value="'+x+'" />Correct Answer<button class="delete btn btn-danger ml-3">Delete</button></div>'); //add input box
+                    
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+        });
+        $(sin_ans).click(function(e) {
+            e.preventDefault();
+            z = "radio"
+            $(wrapper).append('<div class=""><input type="text" name="mytext[]" class="form-control mb-1" placeholder="Fill me"/><input class="mb-5" type="'+z+'" name="answer[]" value="'+x+'" />Correct Answer</div>');
+            $(add_button).click(function(e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append('<div class=""><input type="text" name="mytext[]" class="form-control mb-1" placeholder="Fill me"/><input class="mb-5" type="'+z+'" name="answer[]" value="'+x+'" />Correct Answer<button class="delete btn btn-danger ml-3">Delete</button></div>'); //add input box
+                    
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+        });
+        
+        
+
+        $(wrapper).on("click", ".delete", function(e) {
+            e.preventDefault();
+            $(this).parent('div').remove();
+            x--;
+        })
+    });
+</script>
