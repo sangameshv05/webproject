@@ -10,13 +10,33 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <link href="addsubject.css" rel="stylesheet">
-   
+   <style>
+    #back, #logout{
+    margin-top: 60px;
+    
+    }
+    #logout{
+    margin-left: 80%;
+    
+    }
+    #back{
+    margin-left: -30%;
+    
+    }
+.login-form{
+    margin-top: 10%;
+    margin-left: -10%;
+    margin-right: 20%;
+}
+   </style>
 </head>
-<body>
+<body class="bg-secondary">
     <div class="main h-100 w-100">
-        <div class="col-md-6 col-sm-12">
+        <h4 id='back' class="btn btn-dark"><a href="adduser.html">Go Back</a></h4>
+        <h4 id='logout' class="btn btn-dark"><a href="logout.php">Logout</a></h4>
+        <div class="col-md-8 col-sm-12">
         <div class="login-form">
-            <h2 class="mb-5">Insert Subject Details</h2>
+            <h1 class="mb-5">INSERT SUBJECT DETAILS</h1>
             <form action="addsubject.php" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control" name="id" placeholder="Subject Code">

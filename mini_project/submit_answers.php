@@ -29,6 +29,7 @@
             $num=$x;
             $ans="";      
             foreach($_POST[$x] as $selected){
+                echo $selected;
                 $ans=$ans.",".$selected;                
             }
             

@@ -21,6 +21,7 @@
     echo "<h2> TEST NUMBER: ".$_POST['test']."</h2>";
     echo "<table border='1px solid black'>";
     echo "<tr><th>USN</th> <th>MARKS</th></tr>";
+    
     while($res=$result->fetch_assoc()){
         echo "<tr><td>".$res['usn']."</td><td>".$res['marks']."</td></tr>";
     }

@@ -51,38 +51,46 @@
             $total_ques = $database->prepare($total_ques);
             $total_ques->bind_param('ss', $test, $subject);
             
+            if ($subject_ids->num_rows > 0) {
+
             
-            while($subject_id=$subject_ids->fetch_assoc()){
-                
-                $subject=$subject_id['subject_id'];
-    
-                $marks->execute();
-                $result=$marks->get_result();
+                while($subject_id=$subject_ids->fetch_assoc()){
+                    if($subject_id['subject_id']){
 
-                echo "<table class='table table-dark table-striped table-hover'>";
                     
-                    echo "<tr> <th colspan=3>".$subject."</th> </tr>";
+                        $subject=$subject_id['subject_id'];
+            
+                        $marks->execute();
+                        $result=$marks->get_result();
 
-                    echo "<tr> 
-                            <td> Test Number </td> 
-                            <td> Marks Obtained </td> 
-                            <td> Check Answers </td>
-                        </tr>";
-                    while($res=$result->fetch_assoc()){
-                        $test = $res['test'];
-                        $total_ques->execute();
-                        $total=$total_ques->get_result();
-                        $total = $total->fetch_assoc();
+                        echo "<table class='table table-dark table-striped table-hover'>";
+                            
+                            echo "<tr> <th colspan=3>".$subject."</th> </tr>";
 
-                        echo "<tr> 
-                                <td>".$res['test']."</td>
-                                <td>".$res['marks']."/".$total['total']."</td> 
-                                <td> <a href=show_answers.php?test=".$res['test']."&subject=".$subject."> Answers </a></td>
-                            </tr>";
+                            echo "<tr> 
+                                    <td> Test Number </td> 
+                                    <td> Marks Obtained </td> 
+                                    <td> Check Answers </td>
+                                </tr>";
+                            while($res=$result->fetch_assoc()){
+                                $test = $res['test'];
+                                $total_ques->execute();
+                                $total=$total_ques->get_result();
+                                $total = $total->fetch_assoc();
+
+                                echo "<tr> 
+                                        <td>".$res['test']."</td>
+                                        <td>".$res['marks']."/".$total['total']."</td> 
+                                        <td> <a href=show_answers.php?test=".$res['test']."&subject=".$subject."> Answers </a></td>
+                                    </tr>";
+                            }
+                            
+                        echo "</table>";
                     }
-                    
-                echo "</table>";
-            }           
+                }      
+            }else{
+                echo "<h1> You have not taken any tests, yet</h1>";
+            }    
         ?>
     
     </div>

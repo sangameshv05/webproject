@@ -31,7 +31,7 @@
     <!--- Navbar --->
     <nav class="navbar navbar-expand-lg ">
          <div class="container">
-         <a class="navbar-brand text-white" href="./index.php"><i class="fa fa-graduation-cap fa-lg mr-2"></i>Learn Academy</a>
+         <a class="navbar-brand text-white" href="./index.php"><i class="fa fa-graduation-cap fa-lg mr-2"></i>Online Examination Tool</a>
          <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
             <span class="navbar-toggler-icon"></span>
          </button>
@@ -42,15 +42,6 @@
                      <li class="nav-item active pl-1">
                         <a class="nav-link" href="#"><i class="fa fa-user fa-fw mr-1"></i>'.$_SESSION['name'].'</a>
                      </li>';}?>
-                  <li class="nav-item pl-1">
-                     <a class="nav-link" href="./reviewf/review.php"><i class="fa fa-th-list fa-fw mr-1"></i>Review</a>
-                  </li>
-                  <li class="nav-item pl-1">
-                     <a class="nav-link" href="./aboutf/about.php"><i class="fa fa-info-circle fa-fw mr-1"></i>About Us</a>
-                  </li>
-                  <li class="nav-item pl-1">
-                     <a class="nav-link" href="./contactf/contact.php"><i class="fa fa-phone fa-fw fa-rotate-180 mr-1"></i>Contact Us</a>
-                  </li>
                   
                   <?php
                      if(!$_SESSION['temp']){echo'
@@ -72,7 +63,7 @@
     <div  class="h-100 w-100 mybg d-flex justify-content-center">
         <div class="description col-md-4 ">
             <h1 class="text-info">    Welcome To Online Examination Tool
-                <p class="pt-3"> It is also needed less manpower to execute the examination. Almost all organizations now-a-days, 
+                <p class="pt-3"> It is also needed less manpower to conduct the examination. Almost all organizations now-a-days, 
                     are conducting their objective exams by online examination system, it saves students time in examinations.
                 </p>   
                 <a class="btn btn-outline-secondary btn-lg viewbtn" href="./login.php">Get Started</a>  
@@ -133,92 +124,6 @@
     </div>
 
 
-    <div class="container  overflow-auto" id="contactus" style='padding-top: 120px; padding-bottom: 120px;'>
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-            a matter of hours to help you.</p>
-
-        <div class="row">
-            <div class="col-md-9  mb-5">
-                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="mb-0">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" mb-0">
-                                <input type="text" id="email" name="email" class="form-control" placeholder="Your Email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-                            <div class=" mb-0">
-                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-md-12">
-
-                            <div class="">
-                                <textarea type="text" id="message" name="message" rows="2" class="form-control " placeholder="Your Message"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </form>
-
-                <div class="text-center text-md-left"><?php echo '
-                    <a class="btn btn-primary" href="#" onClick="alert(';
-                        if($_SESSION['temp'] == FALSE){
-                            echo'\'Please LogIn!\'';
-                        }else{
-                            echo'
-                                \'Dear '.$_SESSION['name'].', Thanks for choosing Learn Academy. \nWe will contact you through your mail - '.$_SESSION['email'].'\'
-                            ';
-                        }echo')">Send »</a>';?>
-                </div>
-                <div class="status"></div>
-            </div>
-            <div class="col-md-3 text-center">
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p>Bangalore, CA 94126, India</p>
-                    </li>
-
-                    <li><i class="fa fa-phone fa-2x"></i>
-                        <p>+91 01234 56789</p>
-                    </li>
-
-                    <li><i class="fa fa-envelope mt-2 fa-2x"></i>
-                        <p>contact@projectideas.com</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr class="mt-5"/>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                <ul class="list-unstyled list-inline social text-center">
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x colorme"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x colorme"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x colorme"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus fa-2x colorme"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-envelope fa-2x colorme"></i></a></li>
-                </ul>
-            </div>
-            <hr>
-        </div>	
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center ">
-                <p class="h6">© 2020 Copyright:<a href="#"> ProjectIdeas.</a> All right Reversed.</p>
-            </div>
-            <hr>
-        </div>
-    </div>
+    
 </body>
 </html>

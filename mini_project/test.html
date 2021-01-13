@@ -9,10 +9,39 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <link href="test.css" rel="stylesheet">
+    <style>
+        
+        .main{
+            padding-left: 35%; 
+        }
+
+        .login-form{
+            margin-top: 30%;
+        }
+
+        .btn-black{
+            background-color: #000 !important;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 750px) {
+            .login-form{
+                margin-top: 10%;
+            }
+            .main{
+                padding-left: 0%; 
+            }
+            
+        }
+        h4{
+            margin-left: 60%;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-secondary">
     <div class="main h-100 w-100">
+        <h4 id='logout' class="btn btn-dark"><a href="logout.php">Logout</a></h4>
         <div class="col-md-4 col-sm-10">
         
         <div class="login-form">

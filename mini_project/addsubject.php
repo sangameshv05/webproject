@@ -12,7 +12,7 @@
 
     if($database->query($query))
     {
-        header("Location: ./admin.html");
+        header("Location: ./adduser.html");
     }
     else{
         echo "error";

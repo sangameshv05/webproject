@@ -30,6 +30,7 @@
     
     <?php
         require_once "connection.php";
+
         $code=$_GET['code'];
         $usn=$_SESSION['usn'];
 
@@ -47,8 +48,8 @@
         $query="select max(test) as last_test from enrolled where usn='$usn' and subject_id='$code';";
         $last_test=$database->query($query);
         $last_test=$last_test->fetch_assoc();
-
-        if($last_test['last_test']==$test_num){
+        
+        if($last_test['last_test']==$test_num ){
             echo "<script> alert('No Test Available'); 
                     window.location.href='./student.php';
                 </script>";
@@ -62,40 +63,66 @@
             $b=explode(":",$date);
         
             if(($b[0]>=$a[0] and $b[1] -$a[1]>10) and $res['date']<=date("Y-m-d")){
-                echo "<h1>Test already got over </h1>";
+                echo "<script> alert('You are late, Test got over'); 
+                    window.location.href='./student.php';
+                </script>";
             }else if(($b[0]<=$a[0] and $b[1]<$a[1]) and $res['date']>=date("Y-m-d")){
                 echo "<h1>Test starts on '$res[date]' at ".date('h:i:s a',strtotime($res['time'])) ."</h1>";
+                echo "<script type='text/javascript'>
+                        setInterval(function(){
+                            var d = new Date();
+                            var n = d.getMinutes();
+                            
+                            if($b[0]==$a[0] && n==$a[1] && ".$res['date']."==".date('Y-m-d')."){
+                                location.reload();
+                                clearInterval();
+                            }
+
+                        },1000)
+                    </script>";
+
             }
             else if($a[0]==$b[0] and $res['date']==date("Y-m-d")){
                 if($b[1]-$a[1]<10 ){
                     
                     $query="select * from questions where subject_id='$code' and test_num='$test_num';";
                     $tests=$database->query($query);
+
+                    if(!isset($_SESSION['duration'])){
+                        $_SESSION['duration']=$res['duration'].":00";
+                    }
     
                     if ($tests->num_rows > 0){
-                        echo "<h4>Time Remaining:</h4> <h4 id='time'></h4>";
+                    ?>
+                        <h4>Time Remaining:</h4> <h4 id='time'></h4>
+                    <?php
                         
-                        echo "<script type='text/javascript'>document.getElementById('time').innerHTML='$res[duration]:00';
+                        echo "<script type='text/javascript'>
+                                document.getElementById('time').innerHTML='$_SESSION[duration]';
                                 var arr=document.getElementById('time').innerHTML.split(':');
                                 var min=parseInt(arr[0]);
                                 var sec=0;
                                 
                                 setInterval(function(){
+                                    
                                     if(min==0 && sec==0){
                                         document.getElementById('submit').click();
                                     }
                                     if (sec>0){
                                         sec--;
-                                        document.getElementById('time').innerHTML=min+':'+sec;
+                                        document.getElementById('time').innerHTML=min+':'+sec;                                       
+                                        
                                     }
                                 
                                     else{
                                         min--;
                                         sec=59;
-                                        document.getElementById('time').innerHTML=min+':'+sec;          
+                                        document.getElementById('time').innerHTML=min+':'+sec;                                                                               
+                                       
                                     }
-                                },1000)
-                            </script>";
+                                },1000);
+                            </script>";                        
+
                         echo "<h1>Questions</h1>";
                         echo "<form action='submit_answers.php' method='post'";
                             echo "<div>";
@@ -104,7 +131,7 @@
                                         echo "<b>".$row['number'].".".$row['description']."</b><br>";
                                         for($i=1;$i<8;$i++){
                                             if($row['option'.$i]!=null){
-                                                echo "<input type=".$row['type']." name=".$row['number']."[]"." value=".$row['option'.$i].">".$row['option'.$i]."<br>";
+                                                echo "<input type=".$row['type']." name=".$row['number']."[]"." value='".$row['option'.$i]."'>".$row['option'.$i]."<br>";
                                             }else{
                                                 break;
                                             }
@@ -121,10 +148,11 @@
                     echo "test expired";
                 }
             }else{
-                echo "<h1>Test already got over </h1>";
+                echo "<script> alert('You are late, Test got over'); 
+                    window.location.href='./student.php';
+                </script>";
             }
         }
-
     ?>
 </body>
 </html>

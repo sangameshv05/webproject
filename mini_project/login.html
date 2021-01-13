@@ -9,23 +9,45 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <link href="login.css" rel="stylesheet">
+    <style>
+    body{
+        position: absolute;
+    }
+        .main{
+        margin-left: 45%; 
+    }
+
+    .login-form{
+        margin-top: 30%;
+        text-align: center;
+        border: 5px solid black;
+        
+    }
+    
+    h1{
+        margin-top: 60px;
+        margin-left: 350px;
+    }
+
+    
+    </style>
 </head>
-<body>
+<body class="bg-secondary " >
+    <h1>WELCOME TO ONLINE EXAMINATION TOOL</h1>
     <div class="main ">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-8 col-sm-12">
         <div class="login-form">
             <h3>LOGIN</h3>
             <form action="login.php" method="POST"> 
                 <div class="form-group">
                     <label>User Name</label>
-                    <input type="text" class="form-control" placeholder="User Name" name='uname'>
+                    <input type="text" class="form-control" placeholder="User Name" name='uname' autofocus>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
-                <button type="submit" class="btn btn-black">Login</button>
+                <button type="submit" class="btn btn-dark">Login</button>
                 
             </form>
         </div>

@@ -31,7 +31,7 @@
     <body class="bg-secondary">
         <div class="container  pt-3">
             <h4 class="btn btn-dark"><a href="logout.php">Logout</a></h4>
-            <h1 style="text-align: center;">Welcome <?php echo $_SESSION['name']; ?></h1>
+            <h1 style="text-align: center;" id='head'>Welcome <?php echo $_SESSION['name']; ?></h1>
             <?php
                 require "connection.php";
 
@@ -40,7 +40,7 @@
                 $execute=$database->query($query);
                 
                 if ($execute->num_rows > 0) {
-                // output data of each row
+                
             ?>
                     
                     <table class='table table-striped table-hover table-dark'>
@@ -54,7 +54,7 @@
                         <tr>
                             <td><?php echo $row['subject_id']?></td>
                             <td><?php echo $row['subject_name'] ?></td>
-                            <td><a href=check_test.php?code=<?php echo $row['subject_id']?> >Take Test</a></td>
+                            <td><a href='check_test.php?code=<?php echo $row["subject_id"]?> '>Take Test</a></td>
                         </tr>
                     <?php } ?>
                     </table>                
